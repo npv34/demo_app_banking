@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <caption>Ung dung banking</caption>
+        <tr>
+            <td>So tien gui</td>
+            <td>
+                <input type="number" id="money">
+            </td>
+        </tr>
+        <tr>
+            <td>So thang gui</td>
+            <td>
+                <input type="number" id="month" value="6" min="1">
+            </td>
+        </tr>
+        <tr>
+            <td>Lai suat nam</td>
+            <td>
+                <select name="" id="interest">
+                    <option value="1">1%</option>
+                    <option value="5">5%</option>
+                    <option value="10">10%</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="calculatedMoney()">Ket qua</button>
+            </td>
+        </tr>
+    </table>
+    <p id="result"></h2>
+    <script>
+        // tạo hàm tính toán có tên calculatedMoney(), hàm được chạy khi click vào button kết quả
+
+        function calculatedMoney() {
+            // lấy giá trị người dùng nhập vào
+            let money = parseFloat(document.getElementById('money').value);
+            let month = parseFloat(document.getElementById('month').value);
+            let interest = parseFloat(document.getElementById('interest').value) / 100;
+
+            // tính lãi suất
+            let totalInterest = money * month * interest;
+
+            // tính tổng tiền sau khi lãi
+            let totalMoney = money + totalInterest;
+
+            // hiển thị kết quả
+            document.getElementById('result').innerText = `Tổng tiền sau khi lãi: ${totalMoney} VND`;
+        }
+
+    </script>
+</body>
+</html>
